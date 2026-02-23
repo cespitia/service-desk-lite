@@ -89,6 +89,27 @@ public class TicketsController : Controller
         return RedirectToAction(nameof(Index));
     }
 
+    // POST: /Tickets/AddComment/5
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> AddComment(int id, string content)
+    {
+        if (string.IsNullOrWhiteSpace(content))
+            return RedirectToAction(nameof(Details), new { id });
+
+        var ticket = await _context.Tickets.FindAsync(id);
+        if (ticket == null) return NotFound();
+
+        _context.TicketComments.Add(new TicketComment
+        {
+            TicketId = id,
+            Content = content.Trim()
+        });
+
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(Details), new { id });
+    }
+    
     // POST: /Tickets/SetStatus/5?status=Closed
     [HttpPost]
     [ValidateAntiForgeryToken]
