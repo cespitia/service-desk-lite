@@ -1,0 +1,52 @@
+:root{
+  --brand-purple: #512BD4;
+  --panel-bg: rgba(255,255,255,0.92);
+}
+
+.page-header{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap: 1rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.page-title{
+  margin:0;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.page-subtitle{
+  margin:0.25rem 0 0;
+  color: #6c757d;
+}
+
+.card-elev{
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+.btn-brand{
+  background: var(--brand-purple);
+  border-color: var(--brand-purple);
+  color: #fff;
+}
+
+.btn-brand:hover{
+  background: #5C37E6;
+  border-color: #5C37E6;
+  color: #fff;
+}
+
+.badge-open{ background: rgba(81,43,212,0.10); color: #512BD4; border: 1px solid rgba(81,43,212,0.30); }
+.badge-inprogress{ background: rgba(13,110,253,0.10); color: #0d6efd; border: 1px solid rgba(13,110,253,0.25); }
+.badge-closed{ background: rgba(25,135,84,0.12); color: #198754; border: 1px solid rgba(25,135,84,0.25); }
+
+.table td, .table th{
+  vertical-align: middle;
+}
+
+.mono{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
