@@ -1,8 +1,63 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="page-header">
+    <div>
+        <h2 class="page-title">Service Desk Dashboard</h2>
+        <p class="page-subtitle">Overview of ticket activity and system status.</p>
+    </div>
+    <div>
+        <a asp-controller="Tickets" asp-action="Index" class="btn btn-brand">
+            Go to Tickets
+        </a>
+    </div>
+</div>
+
+<div class="row g-3">
+    <div class="col-md-4">
+        <div class="card card-elev text-center">
+            <div class="card-body">
+                <div class="text-muted small">Open Tickets</div>
+                <div class="display-6 fw-semibold text-primary">
+                    @ViewBag.OpenCount
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card card-elev text-center">
+            <div class="card-body">
+                <div class="text-muted small">In Progress</div>
+                <div class="display-6 fw-semibold text-info">
+                    @ViewBag.InProgressCount
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card card-elev text-center">
+            <div class="card-body">
+                <div class="text-muted small">Closed</div>
+                <div class="display-6 fw-semibold text-success">
+                    @ViewBag.ClosedCount
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card card-elev mt-4">
+    <div class="card-body">
+        <h5 class="mb-2">Architecture Summary</h5>
+        <ul class="mb-0">
+            <li>ASP.NET Core MVC application</li>
+            <li>Entity Framework Core with SQL Server</li>
+            <li>Normalized relational schema (Users → Tickets → Comments)</li>
+            <li>Docker-hosted SQL Server instance</li>
+            <li>Status workflow and support-style comment tracking</li>
+        </ul>
+    </div>
 </div>
