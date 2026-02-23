@@ -1,24 +1,28 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using ServiceDeskLite.Models;
+using Microsoft.EntityFrameworkCore;
+using ServiceDeskLite.Data;
 
 namespace ServiceDeskLite.Controllers;
 
 public class HomeController : Controller
 {
-    public IActionResult Index()
+    private readonly ApplicationDbContext _context;
+
+    public HomeController(ApplicationDbContext context)
     {
-        return View();
+        _context = context;
     }
 
-    public IActionResult Privacy()
+    public async Task<IActionResult> Index()
     {
-        return View();
-    }
+        var open = await _context.Tickets.CountAsync(t => t.Status == "Open");
+        var inProgress = await _context.Tickets.CountAsync(t => t.Status == "InProgress");
+        var closed = await _context.Tickets.CountAsync(t => t.Status == "Closed");
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        ViewBag.OpenCount = open;
+        ViewBag.InProgressCount = inProgress;
+        ViewBag.ClosedCount = closed;
+
+        return View();
     }
 }
