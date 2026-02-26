@@ -38,10 +38,19 @@ docker run \
 ```
 
 ## Screenshots
-Add screenshots TODO:
-- Dashboard
-- Tickets list
-- Ticket details with comments
+
+### Dashboard
+![Dashboard](docs/screenshots/dashboard.png)
+
+### Tickets List
+![Tickets List](docs/screenshots/tickets-list.png)
+
+### Ticket Details
+![Ticket Details](docs/screenshots/ticket-details.png)
+
+### Create Ticket
+![Create Ticket](docs/screenshots/create-ticket.png)
+>>>>>>> f701bc1 (docs: added screenshots and updated README.md)
 
 ## Repository Structure (TODO)
 - `/src` Application source
