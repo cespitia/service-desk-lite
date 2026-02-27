@@ -50,8 +50,7 @@ docker run \
 
 ### Create Ticket
 ![Create Ticket](docs/screenshots/create-ticket.png)
->>>>>>> f701bc1 (docs: added screenshots and updated README.md)
 
-## Repository Structure (TODO)
+## Repository Structure
 - `/src` Application source
 - `/docs` Architecture notes and diagrams
